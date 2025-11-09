@@ -1,51 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  z-index: 0;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-style: normal;
   line-height: 1.6;
   color: #333;
-  background-color:#fff9f1
+  background-color: #fff9f1;
+  overflow-x: hidden;
+  z-index: 0;
+}
+
+nav {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 5vh;
+  top: 0;
+  text-align: right;
+  padding: 1vh 2vw;
+  background-color: rgb(255, 217, 224);
+  border-bottom: rgb(192, 153, 160) solid 3px;
 }
 
 header {
-    margin-top: 10vh;
-    height: 100vh;
+  margin-top: 8vh;
+  margin-bottom: 5vh;
+  min-height: 80vh;
 }
 
 .intro {
-    display: flex;
-    flex-direction: row;
-    align-items: center; 
-    margin-bottom: 10vh;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10vh;
+  justify-content: center;
 }
 
 .intro h1 {
-    font-size: 4rem;
+  font-size: 4rem;
 }
 
 .intro p {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 .header-text {
-    width: 35vw;
+  width: 35vw;
 }
 
 .header-image {
-    width: 30vw;
+  width: 30vw;
 }
 
-header, footer {
+header,
+footer {
   text-align: center;
 }
 
 a {
-  color: #007acc;
+  color: #333;
   text-decoration: none;
+  padding: 0px 0.5rem;
 }
+
 a:hover {
   text-decoration: underline;
+}
+
+.about {
+  margin-top: 40px;
 }
 
 .project {
@@ -53,44 +82,73 @@ a:hover {
   padding: 1em 0;
 }
 
-#about {
-    background-color: #ffe6e6;
-    margin: 2rem auto;
-    padding: 2rem;
-    max-width: 800px;
-    position: relative;
-    border-radius: 60% 60% 60% 60% / 60% 60% 60% 60%;
-}
-
-#about::before {
-    content: '';
-    position: absolute;
-    top: -15px;
-    left: 0;
-    right: 0;
-    height: 30px;
-    background-color: #ffe6e6;
-    border-radius: 50% 50% 0 0;
-}
-
-#about::after {
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    left: 0;
-    right: 0;
-    height: 30px;
-    background-color: #ffe6e6;
-    border-radius: 0 0 50% 50%;
+.about-cloud {
+  position: absolute;
+  z-index: -1;
+  width: 100vw;
+  height: 50vh;
+  top: -100px;
+  opacity: 0.8;
 }
 
 .reveal {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.8s ease;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease;
 }
 
 .reveal.show {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tech {
+  margin: 5vh 0;
+  padding: 2vh 0;
+}
+
+.tech-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2vh;
+}
+
+.tech-list li {
+  padding: 1rem;
+  background-color: rgba(255, 217, 224, 0.5);
+  border-radius: 8px;
+}
+
+footer {
+  margin-top: 5vh;
+  padding: 2vh 0;
+  width: 100%;
+}
+
+.project-item {
+  margin-bottom: 2rem;
+  padding: 1rem;
+}
+
+.project-item a {
+  color: #333;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+.project-item a:hover {
+  text-decoration: underline;
+}
+
+h3 a {
+  text-decoration: none;
+}
+
+h3 a:hover {
+  text-decoration: underline;
+  pointer-events: all;
 }
