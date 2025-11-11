@@ -5,6 +5,14 @@ Creating a website portfolio from scratch to show web dev skill.
 # Featured Projects - Pick 6
 Need to get a little picture of the game in as well 
 Display 3 by 2 or 2 by 3? 
+Confirmed in There:
+- London Subway GUI (Python Skill)
+- S.P.A.C.E. (Unity Skill)
+Feeling Strongly For:
+- Orbomancer (Godot Skill)
+- Timely or Compass Pages (Team Build Skill)
+- Moon/Weather App (Non-Game Related Skill, Web Development on Own)
+- If updated, shooter survival game (godot) 
 Options:
 - Moon/Weather App
 - S.P.A.C.E.
