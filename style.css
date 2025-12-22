@@ -207,6 +207,26 @@ h2 {
   font-weight: bold;
 }
 
+.flower_divider {
+  width: 110%;
+  height: auto;
+  margin-left: -3vw;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.tech {
+  margin-left: 2rem;
+  margin-bottom: 2vw;
+}
+
+.tech-list {
+  margin-left: 2rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+
 /* Responsive for smaller screens (phones) */
 @media (max-width: 720px) {
   .project-item {
