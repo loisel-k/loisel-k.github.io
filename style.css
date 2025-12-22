@@ -48,12 +48,6 @@ p {
   margin: 0 auto;
 }
 
-.about p {
-  margin: 0;
-  max-width: none;
-  font-size: 1.5rem;
-}
-
 .cloud-transition {
   width: 100vw;
   height: auto;
@@ -65,7 +59,7 @@ p {
   text-align: left;
   margin-top: -50px;
   padding: 2rem;
-
+  z-index: 2;
 }
 
 h2 {
@@ -103,6 +97,139 @@ h2 {
   border: 10px solid #DFB8B6;
   border-radius: 10px;
   width: 90vw;
-  height: 30vh;
   margin: 1rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 180px;
+  height: auto;
+}
+
+.project-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.project-description {
+  flex: 1 1 60%;
+  padding-right: 1rem;
+}
+
+.project-description h3 {
+  margin-bottom: 0.4rem;
+}
+
+.project-description p {
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #222;
+  margin-bottom: 0.6rem;
+  margin-left: 0px;
+}
+
+.project-image {
+  flex: 0 0 35%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  height: 100%;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+  border: 5px solid #DFB8B6;
+}
+
+/* Floating flowers background inside projects */
+.projects { position: relative; overflow: visible; }
+
+/* make reveal content and project items stack above the flowers */
+.projects .reveal { position: relative; z-index: 2; }
+.project-item { position: relative; z-index: 3; }
+
+.floating-flowers { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+
+.floating-flower {
+  position: absolute;
+  bottom: 0; /* start at the bottom edge of the projects section */
+  transform-origin: center;
+  transform: translateY(0) scale(var(--scale, 0.35)) rotate(var(--rotate, 0deg));
+  opacity: 0;
+  will-change: transform, opacity;
+  animation-name: floatUp;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.floating-flower.db { --rotate: -6deg; }
+.floating-flower.lb { --rotate: 6deg; }
+
+/* Reduce sizes so flowers are more subtle */
+.size-sm { --scale: 0.12; }
+.size-md { --scale: 0.22; }
+.size-lg { --scale: 0.36; }
+
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(var(--scale)) rotate(var(--rotate)); opacity: 0; }
+  4% { opacity: 1; }
+  99% { opacity: 1; }
+  100% { transform: translateY(-215%) scale(var(--scale)) rotate(calc(var(--rotate) * 1.2)); opacity: 0; }
+}
+
+/* Respect small screens: reduce motion and hide decorative flowers */
+@media (max-width: 720px) {
+  .floating-flowers { display: none; }
+}
+
+.project-button {
+  background-color: #CFE2E6;
+  border: 5px solid #B8CEE3;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.project-button a {
+  font-family: "Quicksand", sans-serif;
+  font-size: 0.85rem;
+  text-decoration: none;
+  color: #000000;
+  font-weight: bold;
+}
+
+/* Responsive for smaller screens (phones) */
+@media (max-width: 720px) {
+  .project-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .project-description {
+    padding-right: 0;
+    width: 100%;
+    margin-bottom: 0.6rem;
+  }
+
+  .project-image {
+    width: 100%;
+    flex: none;
+    height: auto;
+  }
+
+  .project-image img {
+    width: 100%;
+    height: auto;
+    max-height: 280px;
+    object-fit: cover;
+  }
 }

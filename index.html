@@ -47,36 +47,62 @@
 -->
 
   <section class="projects">
+    <div class="floating-flowers" aria-hidden="true"></div>
     <div class="reveal">
       <h2>Featured Projects</h2>
       <div class="project-list">
         <div class="project-item">
-          <h3>S.P.A.C.E.</h3>
-          <p>A space themed game based on real world data and research built with Unity. Created in a team of 3.</p>
-          <a href="https://play.unity.com/en/games/e799abed-e85b-4292-9428-fe05e054f096/space" target="_blank">Play on Unity</a>
+          <div class="project-description">
+            <h3>S.P.A.C.E.</h3>
+            <p>A space themed game based on real world data and research built with Unity. Created in a team of 3.</p>
+            <button class="project-button"><a href="https://play.unity.com/en/games/e799abed-e85b-4292-9428-fe05e054f096/space" target="_blank">Play on Unity</a></button>
+          </div>
+          <div class="project-image">
+            <img src="images/S.P.A.C.E..jpeg" alt="SPACE Game Screenshot">
+          </div>
         </div>
         <div class="project-item">
-          <h3>Drawing Sketchpad</h3>
-          <p>A drawing sketchpad created entirely in Javascript (with CSS styling).</p>
-          <a href="https://loisel-k.github.io/D2-Sticker-Sketchpad/" target="_blank">Try Out on Github Pages</a>
+          <div class="project-description">
+            <h3>Drawing Sketchpad</h3>
+            <p>A drawing sketchpad created entirely in Javascript (with CSS styling).</p>
+            <button class="project-button"><a href="https://loisel-k.github.io/D2-Sticker-Sketchpad/" target="_blank">Try Out on Github Pages</a></button>
+          </div>
+          <div class="project-image">
+            <img src="images/sketchpad.png" alt="Sketchpad Screenshot">
+          </div>
         </div>
       </div>
       <div class="project-item">
-          <h3>World of Bits</h3>
-          <p>A real-world gelocation based game (best suited for phone) where players can walk around to merge their tokens. Created with Javascript and CSS.</p>
-          <a href="https://loisel-k.github.io/World-of-Bits-D3/" target="_blank">Play on Github Pages</a>
+        <div class="project-description">
+            <h3>World of Bits</h3>
+            <p>A real-world gelocation based game (best suited for phone) where players can walk around to merge their tokens. Created with Javascript and CSS.</p>
+            <button class="project-button"><a href="https://loisel-k.github.io/World-of-Bits-D3/" target="_blank">Play on Github Pages</a></button>
+          </div>
+          <div class="project-image">
+            <img src="images/world_of_bits.png" alt="World of Bits Game Screenshot">
+          </div>
         </div>
       </div>
       <div class="project-item">
-          <h3>Becoming a Mouse</h3>
-          <p>A game about becoming a mouse, traversing a maze of pipes and a dangerous cat to get to your dinner. Created with Godot.</p>
-          <a href="https://kupodupo.github.io/CMPM-121-D1-Incremental-Game/" target="_blank">Play in itch.io</a>
+        <div class="project-description">
+            <h3>Orbomancer</h3>
+            <p>A quick, matching based game where players collect orbs and match them to crystals based on color. Created in a team of 4 in Godot.</p>
+            <button class="project-button"><a href="https://loizel.itch.io/orbomancer" target="_blank">Play on itch.io</a></button>
+          </div>
+          <div class="project-image">
+            <img src="images/orbomancer.png" alt="Orbomancer Game Screenshot">
+          </div>
         </div>
       </div>
       <div class="project-item">
-          <h3>Orbomancer</h3>
-          <p>A quick, matching based game where players collect orbs and match them to crystals based on color. Created in a team of 4 in Godot.</p>
-          <a href="https://kupodupo.github.io/CMPM-121-D1-Incremental-Game/" target="_blank">Play on itch.io</a>
+          <div class="project-description">
+            <h3>Becoming a Mouse</h3>
+            <p>A game about becoming a mouse, traversing a maze of pipes and a dangerous cat to get to your dinner. Created with Godot.</p>
+            <button class="project-button"><a href="https://loizel.itch.io/become-a-mouse" target="_blank">Play on itch.io</a></button>
+          </div>
+          <div class="project-image">
+            <img src="images/become_a_mouse.png" alt="Becoming a Mouse Game Screenshot">
+          </div>
         </div>
       </div>
       <!---<h3><a href="projects.html" class="more-projects">See More Projects</a></h3>-->
@@ -147,6 +173,44 @@
     if (projectsSection) {
         curtainObserver.observe(projectsSection);
     }
+
+    // Floating flowers: generate multiple small flowers when projects become visible
+    (function(){
+      const container = document.querySelector('.floating-flowers');
+      if (!container) return;
+      let created = false;
+
+      function createFlowers(count = 18) {
+        if (created) return; created = true;
+        const types = ['db_flower.png','lb_flower.png'];
+        for (let i = 0; i < count; i++) {
+          const img = document.createElement('img');
+          const type = types[Math.floor(Math.random()*types.length)];
+          img.src = 'images/' + type;
+          img.className = 'floating-flower ' + (type.startsWith('db') ? 'db' : 'lb');
+          const left = -10 + Math.random()*106; // up to 96% across
+          const dur = 12 + Math.random()*28; // 12 - 40s
+          const delay = -Math.random()*dur; // negative so some are mid-flight
+          const scale = 0.08 + Math.random()*0.42; // scale of flowers going up to 0.5
+          img.style.left = left + '%';
+          img.style.animationDuration = dur + 's';
+          img.style.animationDelay = delay + 's';
+          img.style.setProperty('--scale', scale);
+          // Make each flower start just at/barely below the bottom edge of the projects section
+          img.style.bottom = '-8px';
+          img.setAttribute('aria-hidden','true');
+          container.appendChild(img);
+        }
+      }
+
+      // Create when projects comes into view
+      const flowers = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) createFlowers(); });
+      }, { threshold: 0.2 });
+
+      const projects = document.querySelector('.projects');
+      if (projects) flowers.observe(projects);
+    })();
   </script>
 </body>
 </html>
