@@ -55,6 +55,7 @@ p {
 }
 
 .about {
+  position: relative;
   background-color: #E5F2FF;
   text-align: left;
   margin-top: -50px;
@@ -74,7 +75,11 @@ h2 {
   font-size: 1.5rem;
 }
 
+/* Note to self: Flowers were initially going above even with z-index set bc elements have to have a stacking context for z-index to take effect
+- this is typically done by having a position other than static*/
 .cloud-180-transition {
+  position: relative;
+  z-index: 1;
   width: 100vw;
   height: auto;
   margin-bottom: 0px;
@@ -162,6 +167,7 @@ h2 {
 
 .floating-flower {
   position: absolute;
+  z-index: 0;
   bottom: 0; /* start at the bottom edge of the projects section */
   transform-origin: center;
   transform: translateY(0) scale(var(--scale, 0.35)) rotate(var(--rotate, 0deg));
