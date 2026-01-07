@@ -11,7 +11,16 @@
 </head>
 <body>
   <header>
-    <nav> <img src="images/menu_open.png" alt="menu" class="menu"> </nav>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="menu" aria-label="open menu">
+      <img src="images/menu_open.png" alt="menu" class="menu">
+    </button>
+    <nav id="menu" class="side-menu" hidden>
+      <ul>
+        <li><a href="./resume.pdf">Resume</a></li>
+        <li><a href="mailto:lnkleijnen@gmail.com">Email</a></li>
+        <li><a href="https://github.com/loisel-k">Github</a></li>
+      </ul>
+    </nav>
     <h1>Hi, I'm Loisel</h1>
     <p>I'm a game developer who loves creating fun, small-scale projects. Outside of games, I'm passionate about UX/UI,
       software development, and AI automation.</p>
@@ -213,6 +222,17 @@
       const projects = document.querySelector('.projects');
       if (projects) flowers.observe(projects);
     })();
+
+    const button = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('#menu');
+
+    button.addEventListener('click', () => {
+      const isOpen = button.getAttribute('aria-expanded') === 'true';
+      const nextOpen = !isOpen;
+      button.setAttribute('aria-expanded', String(nextOpen));
+      menu.hidden = !nextOpen;
+      menu.classList.toggle('open', nextOpen);
+    });
   </script>
 </body>
 </html>
