@@ -48,27 +48,33 @@ header {
 /* Side menu that slides out from the left */
 .side-menu {
   position: fixed;
-  top: 1rem;
+  top: 0;
   left: 0;
   transform: translateX(-110%);
   transition: transform 300ms ease;
   background: #EBDFE1;
   padding: 1rem 1.25rem;
   border-radius: 0 0.75rem 0.75rem 0;
+  border: 0.3rem solid #DFB8B6;
   box-shadow: 0 8px 24px rgba(0,0,0,0.12);
   z-index: 999;
   min-width: 200px;
+  height: 100vh;
 }
 
-.side-menu.open { transform: translateX(0); }
+.side-menu.open { 
+  transform: translateX(0); 
+}
 
 .side-menu ul {
   list-style: none;
   padding: 0;
+  padding-top: 3rem;
   margin: 0;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  text-align: left;
 }
 .side-menu a {
   color: #000;
@@ -95,6 +101,8 @@ p {
 }
 
 .cloud-transition {
+  position: relative;
+  z-index: 1;
   width: 100vw;
   height: auto;
   margin-bottom: 0px;
@@ -246,7 +254,7 @@ h2 {
 
 .project-button {
   background-color: #CFE2E6;
-  border: 5px solid #B8CEE3;
+  border: 0.3rem solid #B8CEE3;
   border-radius: 1rem;
   padding: 0.5rem 1rem;
 }
@@ -266,7 +274,7 @@ h2 {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
-.tech {
+.tech h2 {
   margin-left: 2rem;
   margin-bottom: 2vw;
 }
@@ -277,6 +285,29 @@ h2 {
   flex-direction: row;
   flex-wrap: wrap;
   gap: 3rem;
+}
+
+.tech ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin-left: 1.5rem;
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.tech li {
+  text-decoration: none;
+  padding: 0.35rem 0.5rem;
+  border-radius: 1rem;
+  background:#CFE2E6;
+  border: 0.3rem solid #B8CEE3;
+}
+
+footer {
+  margin-top: 3rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
 }
 
 /* Responsive for smaller screens (phones) */
