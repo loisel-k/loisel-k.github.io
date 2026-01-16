@@ -2,12 +2,11 @@
 Creating a website portfolio from scratch to show web dev skill. 
 
 ## To Do:
-- Add LinkedIn to Menu
-- Add bottom cloud border to menu tab
 - Rename/reframe portfolio games (longer descriptions with highlighting of skills and renaming repos to less focus on class)
 - Link github repos 
 - Show engineering skills (very project forward rn) -> maybe have a design side and an engineering side 
 - Show off engineering specific skills (knowledge of Github, copilot (agentic coding tools), refactoring)
+- Consider moving menu items to their own div 
 
 # Featured Projects - Pick 6
 Need to get a little picture of the game in as well 
