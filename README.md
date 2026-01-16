@@ -5,8 +5,10 @@ Creating a website portfolio from scratch to show web dev skill.
 - Rename/reframe portfolio games (longer descriptions with highlighting of skills and renaming repos to less focus on class)
 - Link github repos 
 - Show engineering skills (very project forward rn) -> maybe have a design side and an engineering side 
+- Show contribution specifically to each project, bring attention to self learning (like this is the project I used to teach myself Godot)
+- Take GPA off of resume
 - Show off engineering specific skills (knowledge of Github, copilot (agentic coding tools), refactoring)
-- Consider moving menu items to their own div 
+- Consider moving menu items to their own div
 
 # Featured Projects - Pick 6
 Need to get a little picture of the game in as well 
