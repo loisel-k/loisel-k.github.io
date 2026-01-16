@@ -2,6 +2,11 @@
 Creating a website portfolio from scratch to show web dev skill. 
 
 ## To Do:
+- Add LinkedIn to Menu
+- Add bottom cloud border to menu tab
+- Rename/reframe portfolio games (longer descriptions with highlighting of skills and renaming repos to less focus on class)
+- Link github repos 
+
 # Featured Projects - Pick 6
 Need to get a little picture of the game in as well 
 Display 3 by 2 or 2 by 3? 
