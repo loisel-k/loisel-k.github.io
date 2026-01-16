@@ -52,7 +52,7 @@ header {
   left: 0;
   transform: translateX(-110%);
   transition: transform 300ms ease;
-  background: #EBDFE1;
+  background: linear-gradient(to bottom,#EBDFE1 60%, #E5F2FF 60%);
   padding: 1rem 1.25rem;
   border-radius: 0 0.75rem 0.75rem 0;
   border: 0.3rem solid #DFB8B6;
@@ -75,6 +75,8 @@ header {
   flex-direction: column;
   gap: 0.5rem;
   text-align: left;
+  position: relative;
+  z-index: 501;
 }
 .side-menu a {
   color: #000;
@@ -87,6 +89,15 @@ header {
 
 .side-menu a:hover {
   background: rgba(255, 255, 255, 0.4);
+}
+
+.small_clouds {
+  position: absolute;
+  top: 46%;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 500;
 }
 
 h1 {
