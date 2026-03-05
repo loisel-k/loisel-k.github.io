@@ -423,8 +423,7 @@ footer {
   margin-bottom: 0.5rem;
 }
 
-/* RESPONSIVE STYLING */ 
-/* Responsive for smaller screens (phones) */
+/* RESPONSIVE STYLING FOR SMALLER SCREENS (PHONES) */ 
 @media (max-width: 720px) {
   .project-item {
     flex-direction: column;
