@@ -1,3 +1,4 @@
+/* GLOBAL STYLES */
 * {
   margin: 0;
   padding: 0;
@@ -15,6 +16,7 @@ body {
   z-index: 0;
 }
 
+/* HEADER SECTION */
 header {
   display: flex;
   flex-direction: column;
@@ -23,6 +25,7 @@ header {
   margin-bottom: 4rem;
 }
 
+/* GLOBAL (TOP LEFT) MENU BUTTON */
 .menu-toggle {
   position: fixed;
   top: 1rem;
@@ -45,6 +48,7 @@ header {
   height: 2rem;
 }
 
+/* SIDE MENU (PULLED UP BY MENU BUTTON)*/
 /* Side menu that slides out from the left */
 .side-menu {
   position: fixed;
@@ -100,6 +104,7 @@ header {
   z-index: 500;
 }
 
+/* GENERAL STYLINGS - MOVE TO TOP? */
 h1 {
   font-size: 3.5rem;
   margin-bottom: 0.5rem;
@@ -111,6 +116,7 @@ p {
   margin: 0 auto;
 }
 
+/* TRANSITION BETWEEN HEADER AND ABOUT */
 .cloud-transition {
   position: relative;
   z-index: 1;
@@ -119,6 +125,7 @@ p {
   margin-bottom: 0px;
 }
 
+/* ABOUT SECTION */
 .about {
   position: relative;
   background-color: #E5F2FF;
@@ -140,6 +147,7 @@ h2 {
   font-size: 1.5rem;
 }
 
+/* TRANSITION BETWEEN ABOUT AND PROJECTS */
 /* Note to self: Flowers were initially going above even with z-index set bc elements have to have a stacking context for z-index to take effect
 - this is typically done by having a position other than static*/
 .cloud-180-transition {
@@ -152,6 +160,7 @@ h2 {
   margin-top: -10px;
 }
 
+/* PROJECTS SECTION */
 .projects {
   display: flex;
   flex-direction: column;
@@ -278,6 +287,7 @@ h2 {
   font-weight: bold;
 }
 
+/* DIVIDER BETWEEN PROJECTS AND TECHNOLOGIES */
 .flower_divider {
   width: 110%;
   height: auto;
@@ -285,6 +295,12 @@ h2 {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
+
+/* TECHNOLOGIES SECTION */
+.tech {
+  margin-bottom: 8vh;
+}
+
 .tech h2 {
   margin-left: 2rem;
   margin-bottom: 2vw;
@@ -295,7 +311,7 @@ h2 {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 3rem;
+  gap: 1.2rem;
 }
 
 .tech ul {
@@ -307,20 +323,107 @@ h2 {
   line-height: 1.5;
 }
 
-.tech li {
-  text-decoration: none;
-  padding: 0.35rem 0.5rem;
-  border-radius: 1rem;
-  background:#CFE2E6;
+.tech-item {
+  position: relative;
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  background: #CFE2E6;
   border: 0.3rem solid #B8CEE3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
 }
 
+.tech-item img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.tech-item::after {
+  content: attr(data-tech);
+  position: absolute;
+  bottom: 108%;
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  padding: 0.25rem 0.55rem;
+  border-radius: 0.5rem;
+  background: #EBDFE1;
+  border: 0.15rem solid #DFB8B6;
+  white-space: nowrap;
+  font-size: 0.9rem;
+  font-weight: 700;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+  pointer-events: none;
+}
+
+.tech-item:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* CONTACT SECTION */
+.contact {
+  margin-bottom: 6vh;
+}
+
+.contact h2 {
+  margin-left: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.contact p {
+  max-width: 900px;
+  margin-left: 2rem;
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
+}
+
+.contact-list {
+  list-style: none;
+  margin-left: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
+.contact-list li a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: #000000;
+  font-weight: 700;
+  background: #EBDFE1;
+  border: 0.25rem solid #DFB8B6;
+  border-radius: 1rem;
+  padding: 0.45rem 0.85rem;
+  transition: transform 0.2s ease;
+}
+
+.contact-list li a:hover {
+  transform: translateY(-2px);
+}
+
+.contact-icon {
+  width: 1.15rem;
+  height: 1.15rem;
+  object-fit: contain;
+}
+
+/* FOOTER */
 footer {
   margin-top: 3rem;
   text-align: center;
   margin-bottom: 0.5rem;
 }
 
+/* RESPONSIVE STYLING */ 
 /* Responsive for smaller screens (phones) */
 @media (max-width: 720px) {
   .project-item {
@@ -345,5 +448,11 @@ footer {
     height: auto;
     max-height: 280px;
     object-fit: cover;
+  }
+
+  .contact-list {
+    margin-left: 2rem;
+    margin-right: 1rem;
+    gap: 0.7rem;
   }
 }
