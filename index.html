@@ -16,10 +16,10 @@
     </button>
     <nav id="menu" class="side-menu" hidden>
       <ul>
-        <li><a href="./resume.pdf">Resume</a></li>
-        <li><a href="mailto:lnkleijnen@gmail.com">Email</a></li>
-        <li><a href="https://github.com/loisel-k" target="_blank" rel="noopener noreferrer">Github</a></li>
-        <li><a href="https://www.linkedin.com/in/loisel-kleijnen-494231343/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#projects">Featured Projects</a></li>
+        <li><a href="#tech">Technologies</a></li>
+        <li><a href="#contact">Get In Touch</a></li>
       </ul>
       <img src="images/small_clouds.png" alt="small clouds" class="small_clouds">
     </nav>
@@ -30,7 +30,7 @@
   
   <img src="images/cloud_layer.png" alt="Layer of Clouds" class="cloud-transition">
 
-  <section class="about">
+  <section id="about" class="about">
     <div class="reveal"> 
       <h2>About Me</h2>
       <div class="about-text">
@@ -57,7 +57,7 @@
   </div>
 -->
 
-  <section class="projects">
+  <section id="projects" class="projects">
     <div class="floating-flowers" aria-hidden="true"></div>
     <div class="reveal">
       <h2>Featured Projects</h2>
@@ -122,7 +122,7 @@
 
   <img src="images/flower_divider.png" alt="divider" class="flower_divider">
 
-  <section class="tech">
+  <section id="tech" class="tech">
     <div class="reveal">
       <h2>Technologies I Work With</h2>
       <ul class="tech-list">
@@ -146,7 +146,7 @@
     </div>
   </section>
 
-  <section class="contact">
+  <section id="contact" class="contact">
     <div class="reveal">
       <h2>Get In Touch</h2>
       <p>If you'd like to connect, feel free to reach out via email or check out my LinkedIn and Github profiles!</p>
@@ -269,6 +269,15 @@
       button.setAttribute('aria-expanded', String(nextOpen));
       menu.hidden = !nextOpen;
       menu.classList.toggle('open', nextOpen);
+    });
+
+    const menuLinks = menu.querySelectorAll('a[href^="#"]');
+    menuLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        button.setAttribute('aria-expanded', 'false');
+        menu.hidden = true;
+        menu.classList.remove('open');
+      });
     });
   </script>
 </body>
