@@ -10,7 +10,7 @@ Creating a website portfolio from scratch to show web dev skill.
 [ ] Show off engineering specific skills (knowledge of Github, copilot (agentic coding tools), refactoring)
 [x] Consider moving menu items to their own div
 [x] Restyle Tech stack
-[ ] Change submenu to navigate page 
+[x] Change submenu to navigate page 
 
 # Featured Projects - Pick 6
 Need to get a little picture of the game in as well 

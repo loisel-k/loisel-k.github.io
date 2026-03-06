@@ -171,6 +171,14 @@ h2 {
   margin: 1rem;
 }
 
+.project-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
 .project-item {
   background-color: #EBDFE1;
   border: 10px solid #DFB8B6;
@@ -185,14 +193,6 @@ h2 {
   gap: 1rem;
   min-height: 180px;
   height: auto;
-}
-
-.project-list {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
 }
 
 .project-description {
@@ -210,6 +210,11 @@ h2 {
   color: #222;
   margin-bottom: 0.6rem;
   margin-left: 0px;
+}
+
+.project-buttons {
+  display: flex;
+  gap: 1rem;
 }
 
 .project-image {
@@ -287,18 +292,10 @@ h2 {
   font-weight: bold;
 }
 
-/* DIVIDER BETWEEN PROJECTS AND TECHNOLOGIES */
-.flower_divider {
-  width: 110%;
-  height: auto;
-  margin-left: -3vw;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
 /* TECHNOLOGIES SECTION */
 .tech {
   margin-bottom: 8vh;
+  margin-top: 8vh;
 }
 
 .tech h2 {
@@ -367,6 +364,15 @@ h2 {
   transform: translateX(-50%) translateY(0);
 }
 
+/* DIVIDER BETWEEN TECH AND CONTACT ME */
+.flower_divider {
+  width: 110%;
+  height: auto;
+  margin-left: -3vw;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 /* CONTACT SECTION */
 .contact {
   margin-bottom: 6vh;
@@ -378,7 +384,7 @@ h2 {
 }
 
 .contact p {
-  max-width: 900px;
+  max-width: 80vw;
   margin-left: 2rem;
   margin-bottom: 1.2rem;
   font-size: 1.1rem;
