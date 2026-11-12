@@ -1,8 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Cherry Bomb One:wght@400;500;600;700;800&display=swap");
+
 /* GLOBAL STYLES */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+
+:root {
+  --header-color: #7ea4c8;
+
+  --primary-color: #EBDFE1;
+  --secondary-color: #E5F2FF;
+  --accent-color: #CFE2E6;
+  --border-color: #DFB8B6;
+  --text-color: #000000;
+  --background-color: #FAFCFB;
 }
 
 body {
@@ -106,8 +120,11 @@ header {
 
 /* GENERAL STYLINGS - MOVE TO TOP? */
 h1 {
+  color: var(--header-color);
   font-size: 3.5rem;
   margin-bottom: 0.5rem;
+  font-family: "Cherry Bomb One";
+  font-weight: 500;
 }
 
 p {
@@ -138,6 +155,9 @@ p {
 h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
+  font-family: "Cherry Bomb One";
+  font-weight: 500;
+  color: var(--header-color);
 }
 
 /* p styling (and others like h) are global styles and will override div styling */
@@ -162,92 +182,387 @@ h2 {
 
 /* PROJECTS SECTION */
 .projects {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: visible;
 }
 
 .projects h2 {
   margin: 1rem;
 }
 
-.project-list {
+.projects .reveal {
+  position: relative;
+  z-index: 2;
   width: 100%;
+}
+
+.project-list {
+  width: min(1180px, 92vw);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 95px 24px;
+}
+
+.project {
+  display: block;
+  grid-column: span 7;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #42416b;
+  text-align: left;
+  cursor: pointer;
+}
+
+.project:nth-child(2) {
+  grid-column: 6 / span 7;
+}
+
+.project:nth-child(3) {
+  grid-column: 2 / span 8;
+}
+
+.project-visual {
+  position: relative;
+  display: block;
+  height: min(56vw, 620px);
+  overflow: hidden;
+  border: 3px solid #42416b;
+  border-radius: 48px;
+  box-shadow: 10px 11px 0 #42416b;
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+
+.project:hover .project-visual {
+  transform: translateY(-7px) rotate(-0.5deg);
+  box-shadow: 14px 18px 0 #42416b;
+}
+
+.project:nth-child(2) .project-visual {
+  height: min(49vw, 550px);
+  transform: rotate(1deg);
+}
+
+.project:nth-child(2):hover .project-visual {
+  transform: translateY(-7px) rotate(0.5deg);
+}
+
+.planet-form {
+  position: absolute;
+  border-radius: 50%;
+  transition: transform 800ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.project:hover .planet-form {
+  transform: scale(1.07) rotate(8deg);
+}
+
+.project-luma .project-visual,
+.modal-visual.project-luma {
+  background: linear-gradient(145deg, #f7d5d9, #f0d2a8 55%, #9dcfe5 100%);
+}
+
+.project-luma .planet-form {
+  top: 16%;
+  left: 24%;
+  width: 58%;
+  aspect-ratio: 1;
+  border: 3px solid rgba(27, 51, 48, 0.7);
+  background: url("images/project-images/Islands.png") center center / cover no-repeat;
+  box-shadow: 0 20px 40px rgba(60, 78, 97, 0.18);
+}
+
+.project-orbital .project-visual,
+.modal-visual.project-orbital {
+  background: linear-gradient(145deg, #d9f4db, #b0dfb4 68%, #6ea172);
+}
+
+.project-orbital .planet-form {
+  top: 25%;
+  left: 30%;
+  width: 50%;
+  aspect-ratio: 1;
+  border: 3px solid #42416b;
+  background: url("images/project-images/world_of_bits.png") center center / cover no-repeat;
+  box-shadow: 0 20px 40px rgba(30, 82, 52, 0.18);
+}
+
+.project-orbital .planet-form::after {
+  position: absolute;
+  top: 40%;
+  left: -28%;
+  width: 156%;
+  height: 22%;
+  border: 7px solid #fff5da;
+  border-radius: 50%;
+  content: "";
+  transform: rotate(-14deg);
+}
+
+.project-solace .project-visual,
+.modal-visual.project-solace {
+  background: linear-gradient(145deg, #cce8f7, #a7d3ed 64%, #8fc3e1);
+}
+
+.project-solace .planet-form {
+  right: -4%;
+  bottom: -35%;
+  width: 88%;
+  aspect-ratio: 1;
+  background: radial-gradient(circle at 35% 30%, #fff4e2, #f3c7c4 42%, #b991be 75%);
+  box-shadow: 0 22px 44px rgba(106, 88, 127, 0.18);
+}
+
+.project-index,
+.view-project {
+  position: absolute;
+  z-index: 2;
+  color: #42416b;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.project-index {
+  top: 24px;
+  left: 27px;
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 2px solid #42416b;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.view-project {
+  right: 24px;
+  bottom: 22px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border: 2px solid #42416b;
+  border-radius: 999px;
+  background: #fff;
+  opacity: 0;
+  transition: opacity 200ms ease, transform 200ms ease;
+}
+
+.project:hover .view-project {
+  opacity: 1;
+  transform: rotate(2deg);
+}
+
+.project-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  padding: 25px 8px 0;
+}
+
+.project-info > span:first-child {
+  display: block;
+}
+
+.project-info span {
+  color: #8a84a0;
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+}
+
+.project-info .project-title {
+  display: block;
+  margin: 6px 0 0;
+  color: #504a76;
+  font-family: "Cherry Bomb One";
+  font-size: clamp(31px, 3.2vw, 50px);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  text-transform: none;
+}
+
+.project-info .project-description {
+  display: block;
+  max-width: 370px;
+  margin: 4px 0 0;
+  color: #777189;
+  font-family: "Quicksand", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.7;
+  text-transform: none;
+}
+
+.icon {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.6;
+}
+
+.project-modal {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  background: #fffaf2;
+  animation: modal-in 400ms cubic-bezier(0.2, 0.75, 0.2, 1) both;
+}
+
+.modal-visual {
+  position: relative;
+  margin: 28px;
+  overflow: hidden;
+  border: 3px solid #42416b;
+  border-radius: 46px;
+  box-shadow: 9px 9px 0 #42416b;
+}
+
+.modal-visual .planet-form {
+  transform: scale(1.08);
+}
+
+.modal-visual > .modal-index {
+  position: absolute;
+  top: 28px;
+  left: 30px;
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border: 2px solid #42416b;
+  border-radius: 50%;
+  background: #fff;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.modal-copy {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
-.project-item {
-  background-color: #EBDFE1;
-  border: 10px solid #DFB8B6;
-  border-radius: 10px;
-  width: 90vw;
-  margin: 1rem;
-  padding: 1rem;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  min-height: 180px;
-  height: auto;
-}
-
-.project-description {
-  flex: 1 1 60%;
-  padding-right: 1rem;
-}
-
-.project-description h3 {
-  margin-bottom: 0.4rem;
-}
-
-.project-description p {
-  font-size: 1rem;
-  line-height: 1.4;
-  color: #222;
-  margin-bottom: 0.6rem;
-  margin-left: 0px;
-}
-
-.project-buttons {
-  display: flex;
-  gap: 1rem;
-}
-
-.project-image {
-  flex: 0 0 35%;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  overflow: hidden;
-  height: 100%;
+  padding: 8vw 6vw;
 }
 
-.project-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 6px;
+.modal-copy h2 {
+  margin: 22px 0 30px;
+  color: #504a76;
+  font-family: "Cherry Bomb One";
+  font-size: clamp(54px, 6vw, 92px);
+  font-weight: 500;
+  letter-spacing: -0.06em;
+  line-height: 0.9;
+}
+
+.modal-copy > p {
+  max-width: 410px;
+  color: #767089;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.75;
+}
+
+.modal-copy .modal-note {
+  margin: 30px 0 40px;
+  padding: 20px;
+  border-radius: 20px;
+  background: #f2eaf6;
+  font-size: 11px;
+}
+
+.modal-copy .text-link {
+  align-self: flex-start;
+  margin-left: 0;
+}
+
+.modal-close {
+  position: absolute;
+  z-index: 3;
+  top: 30px;
+  right: 30px;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #42416b;
+  border-radius: 50%;
+  background: #ffe096;
+  box-shadow: 3px 3px 0 #42416b;
+  cursor: pointer;
+}
+
+.modal-close span {
+  position: absolute;
+  top: 18px;
+  left: 10px;
+  width: 17px;
+  height: 2px;
+  background: #42416b;
+  transform: rotate(45deg);
+}
+
+.modal-close span:last-child {
+  transform: rotate(-45deg);
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 7px;
+  padding: 13px 19px;
+  border: 2px solid #42416b;
+  border-radius: 999px;
+  background: #ffe194;
+  box-shadow: 4px 4px 0 #42416b;
+  color: #42416b;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+  cursor: pointer;
+}
+
+.text-link:hover {
+  transform: translate(3px, 3px);
+  box-shadow: 1px 1px 0 #42416b;
+}
+
+.eyebrow {
   display: block;
-  border: 5px solid #DFB8B6;
+  color: #817aa2;
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.11em;
+  line-height: 1.5;
+  text-transform: uppercase;
 }
 
-/* Floating flowers background inside projects */
-.projects { position: relative; overflow: visible; }
+.project-modal[hidden],
+.mobile-menu:not(.is-open) {
+  display: none;
+}
 
-/* make reveal content and project items stack above the flowers */
-.projects .reveal { position: relative; z-index: 2; }
-.project-item { position: relative; z-index: 3; }
-
-.floating-flowers { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+.floating-flowers {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
 
 .floating-flower {
   position: absolute;
   z-index: 0;
-  bottom: 0; /* start at the bottom edge of the projects section */
+  bottom: 0;
   transform-origin: center;
   transform: translateY(0) scale(var(--scale, 0.35)) rotate(var(--rotate, 0deg));
   opacity: 0;
@@ -260,7 +575,6 @@ h2 {
 .floating-flower.db { --rotate: -6deg; }
 .floating-flower.lb { --rotate: 6deg; }
 
-/* Reduce sizes so flowers are more subtle */
 .size-sm { --scale: 0.12; }
 .size-md { --scale: 0.22; }
 .size-lg { --scale: 0.36; }
@@ -272,24 +586,54 @@ h2 {
   100% { transform: translateY(-215%) scale(var(--scale)) rotate(calc(var(--rotate) * 1.2)); opacity: 0; }
 }
 
-/* Respect small screens: reduce motion and hide decorative flowers */
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 @media (max-width: 720px) {
   .floating-flowers { display: none; }
 }
 
-.project-button {
-  background-color: #CFE2E6;
-  border: 0.3rem solid #B8CEE3;
-  border-radius: 1rem;
-  padding: 0.5rem 1rem;
-}
+@media (max-width: 820px) {
+  .project-list {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
 
-.project-button a {
-  font-family: "Quicksand", sans-serif;
-  font-size: 0.85rem;
-  text-decoration: none;
-  color: #000000;
-  font-weight: bold;
+  .project,
+  .project:nth-child(2),
+  .project:nth-child(3) {
+    grid-column: auto;
+  }
+
+  .project-visual {
+    height: 58vw;
+    min-height: 260px;
+  }
+
+  .project-info {
+    grid-template-columns: 1fr;
+  }
+
+  .project-modal {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-visual {
+    min-height: 320px;
+    margin: 18px 18px 0;
+  }
+
+  .modal-copy {
+    padding: 2rem 1.5rem 3rem;
+  }
 }
 
 /* TECHNOLOGIES SECTION */

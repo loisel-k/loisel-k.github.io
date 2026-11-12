@@ -14,7 +14,7 @@
     <button class="menu-toggle" aria-expanded="false" aria-controls="menu" aria-label="open menu">
       <img src="images/menu_open.png" alt="menu" class="menu">
     </button>
-    <nav id="menu" class="side-menu" hidden>
+    <nav id="menu" class="side-menu mobile-menu" hidden>
       <ul>
         <li><a href="#about">About Me</a></li>
         <li><a href="#projects">Featured Projects</a></li>
@@ -24,8 +24,7 @@
       <img src="images/small_clouds.png" alt="small clouds" class="small_clouds">
     </nav>
     <h1>Hi, I'm Loisel</h1>
-    <p>I'm a game developer who loves creating fun, small-scale projects. Outside of games, I'm passionate about web development,
-      UI/UX design, and game AI.</p>
+    <p>I'm a game developer and software engineer who's passionate about UI/UX, creative interaction design, and crafting maintable systems.</p>
   </header>
   
   <img src="images/cloud_layer.png" alt="Layer of Clouds" class="cloud-transition">
@@ -35,7 +34,7 @@
       <h2>About Me</h2>
       <div class="about-text">
         <p>
-        I'm Loisel Kleijnen, an incoming Master's of Computer Science student at UC San Diego. I just graduated summa cum laude at UCSC with a bachelor's in Computer Science: Game Design. I enjoy building games using engines like Unity and Godot, or just some plain Javascript. My most recent (ongoing) project is available to wishlist <a href="https://store.steampowered.com/app/4703500/Bubble_Mage/" target="_blank">here</a> on Steam! I have experience in full-stack web development, leveraging technologies such as Angular and Firebase, asset creation with Blender, and game development using Unity. When I'm not coding, I love rock climbing, playing video games, and learning new languages (both programming and linguistic - I currently speak English, Dutch, and French). 
+        I'm a current Master's of Computer Science student at UC San Diego. I just graduated summa cum laude at UCSC with a bachelor's in Computer Science: Game Design. I enjoy building games using engines like Unity and Godot, or just some plain Javascript. My most recent (ongoing) project is available to wishlist <a href="https://store.steampowered.com/app/4703500/Bubble_Mage/" target="_blank">here</a> on Steam! I have experience in full-stack web development, leveraging technologies such as Angular and Firebase, asset creation with Blender, and game development using Unity.
         </p>
       </div>
     </div>
@@ -47,103 +46,98 @@
     <div class="floating-flowers" aria-hidden="true"></div>
     <div class="reveal">
       <h2>Featured Projects</h2>
-      <!---<div class="project-list">
-        <div class="project-item">
-          <div class="project-description">
-            <h3>Drawing Sketchpad</h3>
-            <p><b>Summary: </b>A drawing sketchpad created entirely in Javascript (with CSS styling).</p>
-            <p><b>Project Highlights: </b>Users can select custom colors, create custom stickers, and save/download their drawings to their computers. </p>
-            <p><b>Development Highlights: </b>Managed version control through GitHub, utilized JavaScript classes and types for marker and drawing functionality, refactored code to follow better coding standards and documentation, used auto deployment and linter tools. Went through a process of refactoring to clean up code.</p>
-            <p></p>
-            <div class="project-buttons">
-              <button class="project-button"><a href="https://loisel-k.github.io/D2-Sticker-Sketchpad/" target="_blank" rel="noopener noreferrer">Try Out on Github Pages</a></button>
-              <button class="project-button"><a href="https://github.com/loisel-k/D2-Sticker-Sketchpad" target="_blank" rel="noopener noreferrer">View Code on Github</a></button>
-            </div>
-          </div>
-          <div class="project-image">
-            <img src="images/project-images/sketchpad.png" alt="Sketchpad Screenshot">
-          </div>
-        </div>
-      </div> --->
       <div class="project-list">
-        <div class="project-item">
-          <div class="project-description">
-            <h3>Bubble Mage</h3>
-            <p><b>Summary: </b>An open world fantasy game made in Unity and currently in development to be released on Steam! Players will use bubbles, their sole form of magic, to explore islands, solve puzzles, and interact with the island's inhabitants - little slimes.</p>
-            <p><b>Project Highlights: </b>Currently available to wishlist on Steam, pending release in late 2027. Features open world exploration with a variety of magical abilities and versatile equipment system for players to explore. </p>
-            <p><b>Development Highlights: </b>Independently learnt Blender to create 3D models, taking sole responsibility for Blender to Unity pipeline, creating shaders, animations, and VFX for in game 3D assets. Implemented gameplay features such as the equipment system and related effects as well as several of the island puzzles + related mechanics. Managed version control through GitHub, organized development workflow in team of 3, managed project timeline and Steam/publishing related tasks.</p>
-            <p></p>
-            <div class="project-buttons">
-              <button class="project-button"><a href="https://store.steampowered.com/app/4703500/Bubble_Mage/" target="_blank" rel="noopener noreferrer">Wishlist on Steam!</a></button>
-              <!-- <button class="project-button"><a href="https://github.com/loisel-k/D2-Sticker-Sketchpad" target="_blank" rel="noopener noreferrer">View Code on Github</a></button> -->
-            </div>
-          </div>
-          <div class="project-image">
-            <img src="images/project-images/Islands.png" alt="Sketchpad Screenshot">
-          </div>
-        </div>
+        <button class="project project-luma" type="button" data-project="0" aria-haspopup="dialog">
+          <span class="project-visual">
+            <span class="planet-form" aria-hidden="true"></span>
+            <span class="project-index">01</span>
+            <span class="view-project">
+              Peek inside
+              <svg aria-hidden="true" viewBox="0 0 20 20" class="icon diagonal">
+                <path d="M4 16 16 4M7 4h9v9"></path>
+              </svg>
+            </span>
+          </span>
+          <span class="project-info">
+            <span>
+              <span>Open World Video Game · 2025-26</span>
+              <span class="project-title">Bubble Mage</span>
+            </span>
+            <span class="project-description">
+              An open world fantasy game made in Unity. Currently in development with a Steam page open for wishlisting! Players use bubbles, their sole form of magic, to explore islands, solve puzzles, and interact with the island's natural inhabitants - the slimes.
+            </span>
+          </span>
+        </button>
+
+        <button class="project project-orbital" type="button" data-project="1" aria-haspopup="dialog">
+          <span class="project-visual">
+            <span class="planet-form" aria-hidden="true"></span>
+            <span class="project-index">02</span>
+            <span class="view-project">
+              Peek inside
+              <svg aria-hidden="true" viewBox="0 0 20 20" class="icon diagonal">
+                <path d="M4 16 16 4M7 4h9v9"></path>
+              </svg>
+            </span>
+          </span>
+          <span class="project-info">
+            <span>
+              <span>Location-Based Geo-Game · 2025</span>
+              <span class="project-title">World of Bits</span>
+            </span>
+            <span class="project-description">
+              A geolocation based game (best suited for the phone but screen responsive for other devices) where players can walk around in the real world and merge tokens to craft higher and higher values.
+            </span>
+          </span>
+        </button>
+
+        <button class="project project-solace" type="button" data-project="2" aria-haspopup="dialog">
+          <span class="project-visual">
+            <span class="planet-form" aria-hidden="true"></span>
+            <span class="project-index">03</span>
+            <span class="view-project">
+              Peek inside
+              <svg aria-hidden="true" viewBox="0 0 20 20" class="icon diagonal">
+                <path d="M4 16 16 4M7 4h9v9"></path>
+              </svg>
+            </span>
+          </span>
+          <span class="project-info">
+            <span>
+              <span>Sketchpad · 2025</span>
+              <span class="project-title">Sweet+Swift Sketch!</span>
+            </span>
+            <span class="project-description">
+              A soft colored sketchpad that supports multiple marker types, stickers, and exporting pngs.
+            </span>
+          </span>
+        </button>
       </div>
-      <div class="project-item">
-        <div class="project-description">
-            <h3>World of Bits</h3>
-            <p><b>Summary: </b>A gelocation based game (best suited for phone) where players can walk around in the real world to merge tokens for higher values. Created with Javascript and CSS by myself.</p>
-            <p><b>Project Highlights: </b>Used leaflet js to create an interactive map. Supports both real world movement (through walking around) and keyboard movement (WASD) for easier computer usage. Day and night mode styling to suit user preference. Saves player progress on device for when player returns to the website.</p>
-            <p><b>Development Highlights: </b>Used minimal HTML, instead used JS to create HTML elements. Used Flyweight pattern to optimize memory usage and performance by only rendering currently relevant cells of the map. Used the Memento design pattern by only minimally saving changed cells. Used the Facade design pattern with a simple code interface for movement (through geolocation or WASD) rather than duplicating code. Refactored code to get rid of classic code smells such as duplicated code.</p>
-            <div class="project-buttons">
-              <button class="project-button"><a href="https://loisel-k.github.io/World-of-Bits-D3/" target="_blank" rel="noopener noreferrer">Play on Github Pages</a></button>
-              <button class="project-button"><a href="https://github.com/loisel-k/World-of-Bits-D3/tree/main" target="_blank" rel="noopener noreferrer">View Code on Github</a></button>
-            </div>
-          </div>
-          <div class="project-image">
-            <img src="images/project-images/world_of_bits.png" alt="World of Bits Game Screenshot">
-          </div>
-        </div>
+    </div>
+
+    <div class="project-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-description" hidden>
+      <button class="modal-close" type="button" aria-label="Close project">
+        <span></span>
+        <span></span>
+      </button>
+      <div class="modal-visual">
+        <span class="planet-form" aria-hidden="true"></span>
+        <span class="modal-index"></span>
       </div>
-      <!--- Doing 3 projects for now, instead of previous 5
-      <div class="project-item">
-        <div class="project-description">
-            <h3>Orbomancer</h3>
-            <p>A quick, matching based game where players collect orbs and match them to crystals based on color. Created in a team of 4 in Godot.</p>
-            <button class="project-button"><a href="https://loizel.itch.io/orbomancer" target="_blank" rel="noopener noreferrer">Play on itch.io</a></button>
-          </div>
-          <div class="project-image">
-            <img src="images/project-images/orbomancer.png" alt="Orbomancer Game Screenshot">
-          </div>
-        </div>
+      <div class="modal-copy">
+        <span class="eyebrow modal-type"></span>
+        <h2 id="modal-title"></h2>
+        <p id="modal-description"></p>
+        <p class="modal-note">
+          A happy home for your real case study pictures, project details, and the behind-the-scenes story.
+        </p>
+        <button class="text-link modal-back" type="button">
+          Back to the little worlds
+          <svg aria-hidden="true" viewBox="0 0 20 20" class="icon">
+            <path d="M3 10h14M12 5l5 5-5 5"></path>
+          </svg>
+        </button>
       </div>
-      -->
-      <div class="project-item">
-          <div class="project-description">
-            <h3>Becoming a Mouse</h3>
-            <p><b>Summary: </b>A game about becoming a mouse, traversing a maze of pipes and a dangerous cat to get to your dinner. Created with Godot in a team of 4.</p>
-            <p><b>Personal Contribution: </b>Programmed the mouse (player) such as player movement/physics, controls, and field of vision. Designed and programmed the entire pipe maze, from visuals to functionality (such as collision, escaping to home, etc). Programmed the cat's field of vision and effects (chasing mouse, raising attention bar).</p>
-            <p><b>Development Highlights: </b>Independently learnt Godot for this project through a series of small prototypes. Additionally, learnt Godot's shader language to implement the mouse's field of vision in the maze. Took on leadership within the team, scheduling team meetings, meetings with TA, creating Github Repository and associated Project Board. Facilitated use of git branches rather than all working on main. Particpated in group ideation and reiteration to initially create and develop on game idea.</p>
-            <div class="project-buttons">
-              <button class="project-button"><a href="https://loizel.itch.io/become-a-mouse" target="_blank" rel="noopener noreferrer">Play on itch.io</a></button>
-              <button class="project-button"><a href="https://github.com/loisel-k/Become-a-Mouse"target="_blank" rel="noopener noreferrer">View Code on Github</a></button>
-            </div>
-          </div>
-          <div class="project-image">
-            <img src="images/project-images/become_a_mouse.png" alt="Becoming a Mouse Game Screenshot">
-          </div>
-        </div>
-      </div>
-      <div class="project-item">
-          <div class="project-description">
-            <h3>S.P.A.C.E.</h3>
-            <p><b>Summary: </b>A space themed game based on real world data and research built with Unity. Created in a team of 3.</p>
-            <p><b>Personal Contribution: </b>Compiled the real world research into exoplanets behind the game's puzzle mechanics. Created the json files from this data and constructed the base classes in code for the planets and creatures. Programmed the matching evaluation for the puzzle mechanic. Designed, drew (2D pixel art) and implemented the in game interfaces, background, and aliens.</p>
-            <p><b>Development Highlights: </b>Independently learnt Unity basics for this project. Focused learning on implementing Unity UI. Practiced pair programming skills in person and through VSCode's LiveShare feature. Managed producation and tasks of game for team through task spreadsheet and project board. Simultaneously worked on art and programming for game. </p>
-            <div class="project-buttons">
-              <button class="project-button"><a href="https://play.unity.com/en/games/e799abed-e85b-4292-9428-fe05e054f096/space" target="_blank" rel="noopener noreferrer">Play on Unity</a></button>
-              <button class="project-button"><a href="https://github.com/xismichael/S.P.A.C.E"target="_blank" rel="noopener noreferrer">View Code on Github</a></button>
-            </div>
-          </div>
-          <div class="project-image">
-            <img src="images/project-images/S.P.A.C.E..jpeg" alt="SPACE Game Screenshot">
-          </div>
-      </div>
-      <!---<h3><a href="projects.html" class="more-projects">See More Projects</a></h3>-->
     </div>
   </section>
 
@@ -290,25 +284,7 @@
       if (projects) flowers.observe(projects);
     })();
 
-    const button = document.querySelector('.menu-toggle');
-    const menu = document.querySelector('#menu');
-
-    button.addEventListener('click', () => {
-      const isOpen = button.getAttribute('aria-expanded') === 'true';
-      const nextOpen = !isOpen;
-      button.setAttribute('aria-expanded', String(nextOpen));
-      menu.hidden = !nextOpen;
-      menu.classList.toggle('open', nextOpen);
-    });
-
-    const menuLinks = menu.querySelectorAll('a[href^="#"]');
-    menuLinks.forEach((link) => {
-      link.addEventListener('click', () => {
-        button.setAttribute('aria-expanded', 'false');
-        menu.hidden = true;
-        menu.classList.remove('open');
-      });
-    });
   </script>
+  <script src="project-modal.js" defer></script>
 </body>
 </html>
