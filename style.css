@@ -374,7 +374,8 @@ h2 {
 }
 
 .project-info span {
-  color: #8a84a0;
+  color: var(--header-color-light);
+  font-weight: 500;
   font-family: "DM Mono", monospace;
   font-size: 9px;
   text-transform: uppercase;
@@ -589,7 +590,7 @@ h2 {
   0% { transform: translateY(0) scale(var(--scale)) rotate(var(--rotate)); opacity: 0; }
   4% { opacity: 1; }
   99% { opacity: 1; }
-  100% { transform: translateY(-215%) scale(var(--scale)) rotate(calc(var(--rotate) * 1.2)); opacity: 0; }
+  100% { transform: translateY(-290%) scale(var(--scale)) rotate(calc(var(--rotate) * 1.2)); opacity: 0; }
 }
 
 @keyframes modal-in {
