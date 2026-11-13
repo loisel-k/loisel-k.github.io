@@ -10,7 +10,9 @@
 
 :root {
   --header-color: #7ea4c8;
-
+  --header-color-light: #8f6070;
+  --subheader-color: #476480;
+  --project-color: #638aaf;
   --primary-color: #EBDFE1;
   --secondary-color: #E5F2FF;
   --accent-color: #CFE2E6;
@@ -123,8 +125,9 @@ h1 {
   color: var(--header-color);
   font-size: 3.5rem;
   margin-bottom: 0.5rem;
-  font-family: "Cherry Bomb One";
-  font-weight: 500;
+  font-family: "Fraunces";
+  font-style: bold;
+  font-weight: 800;
 }
 
 p {
@@ -155,8 +158,9 @@ p {
 h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
-  font-family: "Cherry Bomb One";
-  font-weight: 500;
+  font-family: "Fraunces";
+  font-style: bold;
+  font-weight: 800;
   color: var(--header-color);
 }
 
@@ -214,7 +218,7 @@ h2 {
   padding: 0;
   border: 0;
   background: transparent;
-  color: #42416b;
+  color: var(--subheader-color);
   text-align: left;
   cursor: pointer;
 }
@@ -232,15 +236,15 @@ h2 {
   display: block;
   height: min(56vw, 620px);
   overflow: hidden;
-  border: 3px solid #42416b;
+  border: 3px solid var(--subheader-color);
   border-radius: 48px;
-  box-shadow: 10px 11px 0 #42416b;
+  box-shadow: 10px 11px 0 var(--subheader-color);
   transition: transform 300ms ease, box-shadow 300ms ease;
 }
 
 .project:hover .project-visual {
   transform: translateY(-7px) rotate(-0.5deg);
-  box-shadow: 14px 18px 0 #42416b;
+  box-shadow: 14px 18px 0 var(--subheader-color);
 }
 
 .project:nth-child(2) .project-visual {
@@ -287,7 +291,7 @@ h2 {
   left: 30%;
   width: 50%;
   aspect-ratio: 1;
-  border: 3px solid #42416b;
+  border: 3px solid var(--subheader-color);
   background: url("images/project-images/world_of_bits.png") center center / cover no-repeat;
   box-shadow: 0 20px 40px rgba(30, 82, 52, 0.18);
 }
@@ -322,7 +326,7 @@ h2 {
 .view-project {
   position: absolute;
   z-index: 2;
-  color: #42416b;
+  color: var(--subheader-color);
   font-size: 10px;
   font-weight: 800;
 }
@@ -334,7 +338,7 @@ h2 {
   width: 34px;
   height: 34px;
   place-items: center;
-  border: 2px solid #42416b;
+  border: 2px solid var(--subheader-color);
   border-radius: 50%;
   background: #fff;
 }
@@ -346,7 +350,7 @@ h2 {
   align-items: center;
   gap: 8px;
   padding: 10px 14px;
-  border: 2px solid #42416b;
+  border: 2px solid var(--subheader-color);
   border-radius: 999px;
   background: #fff;
   opacity: 0;
@@ -379,10 +383,11 @@ h2 {
 .project-info .project-title {
   display: block;
   margin: 6px 0 0;
-  color: #504a76;
-  font-family: "Cherry Bomb One";
+  color: var(--project-color);
+  font-family: "Fraunces";
+  font-style: bold;
   font-size: clamp(31px, 3.2vw, 50px);
-  font-weight: 500;
+  font-weight: 800;
   letter-spacing: -0.04em;
   text-transform: none;
 }
@@ -391,7 +396,7 @@ h2 {
   display: block;
   max-width: 370px;
   margin: 4px 0 0;
-  color: #777189;
+  color: var(--header-color-light);
   font-family: "Quicksand", sans-serif;
   font-size: 12px;
   font-weight: 600;
@@ -423,9 +428,9 @@ h2 {
   position: relative;
   margin: 28px;
   overflow: hidden;
-  border: 3px solid #42416b;
+  border: 3px solid var(--subheader-color);
   border-radius: 46px;
-  box-shadow: 9px 9px 0 #42416b;
+  box-shadow: 9px 9px 0 var(--subheader-color);
 }
 
 .modal-visual .planet-form {
@@ -440,7 +445,7 @@ h2 {
   width: 38px;
   height: 38px;
   place-items: center;
-  border: 2px solid #42416b;
+  border: 2px solid var(--subheader-color);
   border-radius: 50%;
   background: #fff;
   font-size: 10px;
@@ -456,17 +461,18 @@ h2 {
 
 .modal-copy h2 {
   margin: 22px 0 30px;
-  color: #504a76;
-  font-family: "Cherry Bomb One";
+  color: var(--project-color);
+  font-family: "Fraunces";
+  font-style: bold;
   font-size: clamp(54px, 6vw, 92px);
-  font-weight: 500;
+  font-weight: 800;
   letter-spacing: -0.06em;
   line-height: 0.9;
 }
 
 .modal-copy > p {
   max-width: 410px;
-  color: #767089;
+  color: var(--header-color);
   font-size: 14px;
   font-weight: 600;
   line-height: 1.75;
@@ -492,10 +498,10 @@ h2 {
   right: 30px;
   width: 40px;
   height: 40px;
-  border: 2px solid #42416b;
+  border: 2px solid var(--subheader-color);
   border-radius: 50%;
   background: #ffe096;
-  box-shadow: 3px 3px 0 #42416b;
+  box-shadow: 3px 3px 0 var(--subheader-color);
   cursor: pointer;
 }
 
@@ -505,7 +511,7 @@ h2 {
   left: 10px;
   width: 17px;
   height: 2px;
-  background: #42416b;
+  background: var(--subheader-color);
   transform: rotate(45deg);
 }
 
@@ -519,11 +525,11 @@ h2 {
   gap: 10px;
   margin-left: 7px;
   padding: 13px 19px;
-  border: 2px solid #42416b;
+  border: 2px solid var(--subheader-color);
   border-radius: 999px;
   background: #ffe194;
-  box-shadow: 4px 4px 0 #42416b;
-  color: #42416b;
+  box-shadow: 4px 4px 0 var(--subheader-color);
+  color: var(--subheader-color);
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.04em;
@@ -533,12 +539,12 @@ h2 {
 
 .text-link:hover {
   transform: translate(3px, 3px);
-  box-shadow: 1px 1px 0 #42416b;
+  box-shadow: 1px 1px 0 var(--subheader-color);
 }
 
 .eyebrow {
   display: block;
-  color: #817aa2;
+  color: var(--header-color);
   font-family: "DM Mono", monospace;
   font-size: 9px;
   font-weight: 500;
