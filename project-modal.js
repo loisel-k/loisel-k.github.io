@@ -5,7 +5,8 @@ const projects = [
     type: "Open World Video Game · 2025-26",
     description:
       "An open world fantasy game made in Unity. Currently in development with a Steam page open for wishlisting! Players use bubbles, their sole form of magic, to explore islands, solve puzzles, and interact with the island's natural inhabitants - the slimes.",
-    className: "project-luma",
+    image: "images/project-images/Islands.png",
+    imageAlt: "Bubble Mage gameplay screenshot",
   },
   {
     number: "02",
@@ -13,7 +14,8 @@ const projects = [
     type: "Location-Based Geo-Game · 2025",
     description:
       "A geolocation based game (best suited for the phone but screen responsive for other devices) where players can walk around in the real world and merge tokens to craft higher and higher values.",
-    className: "project-orbital",
+    image: "images/project-images/world_of_bits.png",
+    imageAlt: "World of Bits gameplay screenshot",
   },
   {
     number: "03",
@@ -21,14 +23,15 @@ const projects = [
     type: "Sketchpad · 2025",
     description:
       "A soft colored sketchpad that supports multiple marker types, stickers, and exporting pngs.",
-    className: "project-solace",
+    image: "images/project-images/sketchpad.png",
+    imageAlt: "Sweet+Swift Sketch screenshot",
   },
 ];
 
 const menuToggle = document.querySelector(".menu-toggle");
 const mobileMenu = document.querySelector(".mobile-menu, #menu");
 const projectModal = document.querySelector(".project-modal");
-const modalVisual = document.querySelector(".modal-visual");
+const modalImage = document.querySelector(".modal-visual .project-image");
 const modalIndex = document.querySelector(".modal-index");
 const modalType = document.querySelector(".modal-type");
 const modalTitle = document.querySelector("#modal-title");
@@ -77,7 +80,8 @@ if (menuToggle && mobileMenu) {
 
 function openProject(project, trigger) {
   previouslyFocusedElement = trigger;
-  modalVisual.className = `modal-visual ${project.className}`;
+  modalImage.src = project.image;
+  modalImage.alt = project.imageAlt;
   modalIndex.textContent = project.number;
   modalType.textContent = project.type;
   modalTitle.textContent = project.title;

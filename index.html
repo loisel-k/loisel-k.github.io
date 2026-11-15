@@ -11,24 +11,27 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <button class="menu-toggle" aria-expanded="false" aria-controls="menu" aria-label="open menu">
-      <img src="images/menu_open.png" alt="menu" class="menu">
-    </button>
-    <nav id="menu" class="side-menu mobile-menu" hidden>
-      <ul>
-        <li><a href="#about">About Me</a></li>
-        <li><a href="#projects">Featured Projects</a></li>
-        <li><a href="#tech">Technologies</a></li>
-        <li><a href="#contact">Get In Touch</a></li>
-      </ul>
-      <img src="images/small_clouds.png" alt="small clouds" class="small_clouds">
-    </nav>
+  <nav id="menu" class="site-nav" aria-label="Main navigation">
+    <img class="nav-art nav-cloud nav-cloud-left" src="images/corner_cloud_l.png" alt="" aria-hidden="true">
+    <img class="nav-art nav-cloud nav-cloud-right" src="images/corner_cloud_r.png" alt="" aria-hidden="true">
+    <img class="nav-art nav-stars" src="images/two_stars.png" alt="" aria-hidden="true">
+    <img class="nav-art nav-star nav-star-1" src="images/star.png" alt="" aria-hidden="true">
+    <span class="menu-text">Loisel's Little Portfolio</span>
+
+    <ul class="menu-links">
+      <li><a href="#about" class="nav-links">About Me</a></li>
+      <li><a href="#projects" class="nav-links">Featured Projects</a></li>
+      <li><a href="#contact" class="nav-links">Get In Touch</a></li>
+    </ul>
+
+    <img class="nav-art nav-moon" src="images/moon.png" alt="" aria-hidden="true">
+  </nav>
+  <header id="home">
     <h1>Hi, I'm Loisel</h1>
     <p>I'm a game developer and software engineer who's passionate about UI/UX, creative interaction design, and crafting maintable systems.</p>
   </header>
   
-  <img src="images/cloud_layer.png" alt="Layer of Clouds" class="cloud-transition">
+  <img src="images/cloud_layer.png" alt="Layer of Clouds" class="cloud-transition assets">
 
   <section id="about" class="about">
     <div class="reveal"> 
@@ -41,7 +44,7 @@
     </div>
   </section>
 
-  <img src="images/cloud_layer.png" alt="Layer of Clouds" class="cloud-180-transition">
+  <img src="images/cloud_layer.png" alt="Layer of Clouds" class="cloud-180-transition assets">
 
   <section id="projects" class="projects">
     <div class="floating-flowers" aria-hidden="true"></div>
@@ -50,7 +53,7 @@
       <div class="project-list">
         <button class="project project-luma" type="button" data-project="0" aria-haspopup="dialog">
           <span class="project-visual">
-            <span class="planet-form" aria-hidden="true"></span>
+            <img class="project-image" src="images/project-images/Islands.png" alt="Bubble Mage gameplay screenshot">
             <span class="project-index">01</span>
             <span class="view-project">
               Peek inside
@@ -72,7 +75,7 @@
 
         <button class="project project-orbital" type="button" data-project="1" aria-haspopup="dialog">
           <span class="project-visual">
-            <span class="planet-form" aria-hidden="true"></span>
+            <img class="project-image" src="images/project-images/world_of_bits.png" alt="World of Bits gameplay screenshot">
             <span class="project-index">02</span>
             <span class="view-project">
               Peek inside
@@ -94,7 +97,7 @@
 
         <button class="project project-solace" type="button" data-project="2" aria-haspopup="dialog">
           <span class="project-visual">
-            <span class="planet-form" aria-hidden="true"></span>
+            <img class="project-image" src="images/project-images/sketchpad.png" alt="Sweet+Swift Sketch screenshot">
             <span class="project-index">03</span>
             <span class="view-project">
               Peek inside
@@ -122,7 +125,7 @@
         <span></span>
       </button>
       <div class="modal-visual">
-        <span class="planet-form" aria-hidden="true"></span>
+        <img class="project-image" alt="">
         <span class="modal-index"></span>
       </div>
       <div class="modal-copy">
@@ -146,30 +149,30 @@
     <div class="reveal">
       <h2>Technologies I Work With</h2>
       <ul class="tech-list">
-        <li class="tech-item" data-tech="C"><img src="images/tech-images/c.png" alt="C"></li>
-        <li class="tech-item" data-tech="C++"><img src="images/tech-images/c++.png" alt="C++"></li>
-        <li class="tech-item" data-tech="C#"><img src="images/tech-images/csharp.png" alt="C#"></li>
-        <li class="tech-item" data-tech="Python"><img src="images/tech-images/python.png" alt="Python"></li>
-        <li class="tech-item" data-tech="JavaScript"><img src="images/tech-images/js.png" alt="JavaScript"></li>
-        <li class="tech-item" data-tech="TypeScript"><img src="images/tech-images/ts.png" alt="TypeScript"></li>
-        <li class="tech-item" data-tech="HTML"><img src="images/tech-images/html.png" alt="HTML"></li>
-        <li class="tech-item" data-tech="CSS"><img src="images/tech-images/css.png" alt="CSS"></li>
-        <li class="tech-item" data-tech="Unity"><img src="images/tech-images/unity.png" alt="Unity"></li>
-        <li class="tech-item" data-tech="Godot"><img src="images/tech-images/godot.svg" alt="Godot"></li>
-        <li class="tech-item" data-tech="Angular"><img src="images/tech-images/angular.png" alt="Angular"></li>
-        <li class="tech-item" data-tech="Firebase"><img src="images/tech-images/firebase.png" alt="Firebase"></li>
-        <li class="tech-item" data-tech="Git"><img src="images/tech-images/git.png" alt="Git"></li>
-        <li class="tech-item" data-tech="GitHub"><img src="images/tech-images/github.png" alt="GitHub"></li>
-        <li class="tech-item" data-tech="Figma"><img src="images/tech-images/figma.png" alt="Figma"></li>
-        <li class="tech-item" data-tech="React"><img src="images/tech-images/react.png" alt="React"></li>
-        <li class="tech-item" data-tech="Lua"><img src="images/tech-images/lua.png" alt="Lua"></li>
-        <li class="tech-item" data-tech="Blender"><img src="images/tech-images/blender.png" alt="Blender"></li>
+        <li class="tech-item assets" data-tech="C"><img src="images/tech-images/c.png" alt="C"></li>
+        <li class="tech-item assets" data-tech="C++"><img src="images/tech-images/c++.png" alt="C++"></li>
+        <li class="tech-item assets" data-tech="C#"><img src="images/tech-images/csharp.png" alt="C#"></li>
+        <li class="tech-item assets" data-tech="Python"><img src="images/tech-images/python.png" alt="Python"></li>
+        <li class="tech-item assets" data-tech="JavaScript"><img src="images/tech-images/js.png" alt="JavaScript"></li>
+        <li class="tech-item assets" data-tech="TypeScript"><img src="images/tech-images/ts.png" alt="TypeScript"></li>
+        <li class="tech-item assets" data-tech="HTML"><img src="images/tech-images/html.png" alt="HTML"></li>
+        <li class="tech-item assets" data-tech="CSS"><img src="images/tech-images/css.png" alt="CSS"></li>
+        <li class="tech-item assets" data-tech="Unity"><img src="images/tech-images/unity.png" alt="Unity"></li>
+        <li class="tech-item assets" data-tech="Godot"><img src="images/tech-images/godot.svg" alt="Godot"></li>
+        <li class="tech-item assets" data-tech="Angular"><img src="images/tech-images/angular.png" alt="Angular"></li>
+        <li class="tech-item assets" data-tech="Firebase"><img src="images/tech-images/firebase.png" alt="Firebase"></li>
+        <li class="tech-item assets" data-tech="Git"><img src="images/tech-images/git.png" alt="Git"></li>
+        <li class="tech-item assets" data-tech="GitHub"><img src="images/tech-images/github.png" alt="GitHub"></li>
+        <li class="tech-item assets" data-tech="Figma"><img src="images/tech-images/figma.png" alt="Figma"></li>
+        <li class="tech-item assets" data-tech="React"><img src="images/tech-images/react.png" alt="React"></li>
+        <li class="tech-item assets" data-tech="Lua"><img src="images/tech-images/lua.png" alt="Lua"></li>
+        <li class="tech-item assets" data-tech="Blender"><img src="images/tech-images/blender.png" alt="Blender"></li>
 
       </ul>
     </div>
   </section>
 
-  <img src="images/flower_divider.png" alt="divider" class="flower_divider">
+  <img src="images/flower_divider.png" alt="divider" class="flower_divider assets">
 
   <section id="contact" class="contact">
     <div class="reveal">
