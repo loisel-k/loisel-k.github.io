@@ -4,7 +4,11 @@ const projects = [
     title: "Bubble Mage",
     type: "Open World Video Game · 2025-26",
     description:
-      "An open world fantasy game made in Unity. Currently in development with a Steam page open for wishlisting! Players use bubbles, their sole form of magic, to explore islands, solve puzzles, and interact with the island's natural inhabitants - the slimes.",
+      "I independently learnt Blender to create 3D assets for characters (complete with custom rigs and animations) and environment, taking sole responsibility for the asset pipelineI also creating shaders and VFX in Unity for in game assets. I implemented key gameplay features such as the equipment system and related effects as well as several of the island puzzles + related mechanics. As a team we managed version control through GitHub, while I organized our development workflow for our team of 3, managed project timeline and Steam/publishing related tasks.",
+    note: [
+      { text: "Wishlist it on Steam by clicking " },
+      { text: "here!", href: "https://store.steampowered.com/app/4703500/Bubble_Mage/" },
+    ],
     image: "images/project-images/Islands.png",
     imageAlt: "Bubble Mage gameplay screenshot",
   },
@@ -13,18 +17,30 @@ const projects = [
     title: "World of Bits",
     type: "Location-Based Geo-Game · 2025",
     description:
-      "A geolocation based game (best suited for the phone but screen responsive for other devices) where players can walk around in the real world and merge tokens to craft higher and higher values.",
+      "I used leaflet.js to create an interactive map. It supports both readl world movement (through walking around with your device) and and keyboard movement (WASD) for easier computer usage. Day and night mode styling to suit user preference. The game saves player progress for when players return to the website. I used the Flyweight pattern to optimize memory usage and performance by only rendering currently relevant cells of the map. I also used the Memento design pattern by only minimally saving changed cells and the Facade design pattern in implementing a simple code interface for movement (through geolocation or WASD) rather than duplicating code. Additionally, I went through several rounds of refactoring to get rid of classic code smells such as duplicated code.",
+    note: [
+      { text: "Play the game " },
+      { text: "here", href: "https://loisel-k.github.io/World-of-Bits-D3/" },
+      { text: ". Check out the code " },
+      { text: "here", href: "https://github.com/loisel-k/World-of-Bits-D3/tree/main" },
+      { text: "." },
+    ],
     image: "images/project-images/world_of_bits.png",
     imageAlt: "World of Bits gameplay screenshot",
   },
   {
     number: "03",
-    title: "Sweet+Swift Sketch!",
-    type: "Sketchpad · 2025",
+    title: "Timely",
+    type: "Meeting Scheduler · 2024-25",
     description:
-      "A soft colored sketchpad that supports multiple marker types, stickers, and exporting pngs.",
-    image: "images/project-images/sketchpad.png",
-    imageAlt: "Sweet+Swift Sketch screenshot",
+      "I worked on this project as part of my undergraduate research in a large team of 10. I worked on full stack development, working with Figma, HTML, CSS, and Angular to create web components and style the UI layout. I stored and managed our backend database in Firebase. I also led code reviews on other members' pull requests and particpated in lab wide (~50 people) weekly meetings to discuss progress. As part of this project, I also compiled research papers in social computing and HCI to see relevant research to our project.",
+    note: [
+      { text: "Check out a live demo " },
+      { text: "here", href: "https://loisel-k.github.io/timely-v2-fork/#/" },
+      { text: "." },
+    ],
+    image: "images/project-images/timely/timely_login.png",
+    imageAlt: "Timely screenshot",
   },
 ];
 
@@ -36,6 +52,7 @@ const modalIndex = document.querySelector(".modal-index");
 const modalType = document.querySelector(".modal-type");
 const modalTitle = document.querySelector("#modal-title");
 const modalDescription = document.querySelector("#modal-description");
+const modalNote = document.querySelector(".modal-note");
 const closeModalButton = document.querySelector(".modal-close");
 const modalBackButton = document.querySelector(".modal-back");
 let previouslyFocusedElement = null;
@@ -86,6 +103,20 @@ function openProject(project, trigger) {
   modalType.textContent = project.type;
   modalTitle.textContent = project.title;
   modalDescription.textContent = project.description;
+  modalNote.replaceChildren();
+  project.note.forEach(({ text, href }) => {
+    if (!href) {
+      modalNote.append(document.createTextNode(text));
+      return;
+    }
+
+    const link = document.createElement("a");
+    link.href = href;
+    link.textContent = text;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    modalNote.append(link);
+  });
   projectModal.hidden = false;
   document.body.classList.add("locked");
   closeModalButton.focus();

@@ -27,7 +27,7 @@ html {
   --accent-color: #CFE2E6;
   --border-color: #DFB8B6;
   --text-color: #000000;
-  --background-color: #FAFCFB;
+  --background-color: #f0ebec;
   cursor: default;
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
@@ -78,8 +78,8 @@ p {
   align-items: center;
   z-index: 20;
   border-radius: 18px;
-  background: linear-gradient(180deg, #f9ecee 0%, #f3dfe3 100%);
-  border: 2px solid #d8aeb7;
+  background: linear-gradient(180deg, rgb(236, 233, 234) 0%, #EBDFE1 100%);
+  border: 2px solid var(--border-color);
   box-shadow: 0 3px 0 rgba(166, 142, 155, 0.7), 0 14px 28px rgba(116, 96, 110, 0.12);
   overflow: visible;
 }
@@ -235,6 +235,18 @@ h2 {
   font-size: 1.5rem;
 }
 
+.steam-link {
+  color: var(--subheader-color);
+  font-weight: 700;
+  text-decoration: underline;
+  transition: transform 200ms ease, text-shadow 200ms ease;
+}
+
+.steam-link:hover {
+  transform: translateY(-2px);
+  text-shadow: 0 0 4px rgba(66, 70, 77, 0.795);
+}
+
 /* TRANSITION BETWEEN ABOUT AND PROJECTS */
 /* Note to self: Flowers were initially going above even with z-index set bc elements have to have a stacking context for z-index to take effect
 - this is typically done by having a position other than static*/
@@ -276,28 +288,24 @@ h2 {
 }
 
 .project {
-  display: block;
-  grid-column: span 7;
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
   margin: 0;
   padding: 0;
   border: 0;
+  column-gap: 24px;
   background: transparent;
   color: var(--subheader-color);
   text-align: left;
   cursor: pointer;
 }
 
-.project:nth-child(2) {
-  grid-column: 6 / span 7;
-}
-
-.project:nth-child(3) {
-  grid-column: 2 / span 8;
-}
-
 .project-visual {
   position: relative;
   display: block;
+  grid-column: 1 / span 7;
+  grid-row: 1;
   overflow: hidden;
   border: 3px solid var(--border-color);
   border-radius: 48px;
@@ -306,22 +314,79 @@ h2 {
 }
 
 .project:hover .project-visual {
-  transform: translateY(-7px) rotate(-0.5deg);
+  transform: translateY(-7px);
   box-shadow: 14px 18px 0 var(--border-color);
-}
-
-.project:nth-child(2) .project-visual {
-  transform: rotate(1deg);
-}
-
-.project:nth-child(2):hover .project-visual {
-  transform: translateY(-7px) rotate(0.5deg);
 }
 
 .project-image {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.project-aside {
+  display: flex;
+  grid-column: 8 / span 5;
+  grid-row: 1;
+  min-width: 0;
+  width: min(15vw, 100%);
+  flex-direction: column;
+  justify-content: center;
+  justify-self: start;
+  gap: 12px;
+}
+
+.project-detail-box {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  padding: 18px;
+  border: 2px solid var(--border-color);
+  border-radius: 24px;
+  background: var(--background-color);
+  box-shadow: 6px 7px 0 rgba(223, 184, 182, 0.65);
+}
+
+.project-learn-more {
+  display: flex;
+  width: 100%;
+  min-height: 44px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border: 2px solid var(--subheader-color);
+  border-radius: 999px;
+  background: var(--background-color);
+  box-shadow: 4px 4px 0 var(--subheader-color);
+  color: var(--subheader-color);
+  font-family: "DM Mono", monospace;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2;
+  transition: box-shadow 160ms ease;
+}
+
+.project:hover .project-learn-more {
+  box-shadow: 2px 2px 0 var(--subheader-color);
+}
+
+.project-detail-heading {
+  display: block;
+  color: var(--subheader-color);
+  font-family: "Fraunces", serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.project-detail-placeholder {
+  display: block;
+  color: var(--header-color-light);
+  font-family: "Quicksand", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.5;
 }
 
 .project-index,
@@ -333,19 +398,8 @@ h2 {
   font-weight: 800;
 }
 
-.project-index {
-  top: 24px;
-  left: 27px;
-  display: grid;
-  width: 34px;
-  height: 34px;
-  place-items: center;
-  border: 2px solid var(--subheader-color);
-  border-radius: 50%;
-  background: #fff;
-}
-
 .view-project {
+  font-family: "DM Mono", monospace;
   right: 24px;
   bottom: 22px;
   display: flex;
@@ -356,19 +410,42 @@ h2 {
   border-radius: 999px;
   background: #fff;
   opacity: 0;
-  transition: opacity 200ms ease, transform 200ms ease;
+  transition: opacity 200ms ease;
 }
 
 .project:hover .view-project {
   opacity: 1;
-  transform: rotate(2deg);
 }
 
 .project-info {
   display: grid;
+  grid-column: 1 / span 7;
+  grid-row: 2;
   grid-template-columns: 1fr 1fr;
   gap: 30px;
   padding: 25px 8px 0;
+}
+
+.project:nth-child(2) .project-visual {
+  grid-column: 6 / span 7;
+}
+
+.project:nth-child(2) .project-aside {
+  grid-column: 1 / span 5;
+  justify-self: end;
+}
+
+.project:nth-child(2) .project-info {
+  grid-column: 6 / span 7;
+}
+
+.project:nth-child(3) .project-visual,
+.project:nth-child(3) .project-info {
+  grid-column: 2 / span 8;
+}
+
+.project:nth-child(3) .project-aside {
+  grid-column: 10 / span 3;
 }
 
 .project-info > span:first-child {
@@ -495,9 +572,25 @@ h2 {
   font-size: 11px;
 }
 
+.modal-note a {
+  color: var(--subheader-color);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.modal-note a:focus-visible {
+  outline: 2px solid var(--project-color);
+  outline-offset: 2px;
+}
+
 .modal-copy .text-link {
   align-self: flex-start;
   margin-left: 0;
+}
+
+.modal-copy .modal-back {
+  background: var(--background-color);
 }
 
 .modal-close {
@@ -509,7 +602,7 @@ h2 {
   height: 40px;
   border: 2px solid var(--subheader-color);
   border-radius: 50%;
-  background: #ffe096;
+  background: var(--background-color);
   box-shadow: 3px 3px 0 var(--subheader-color);
   cursor: pointer;
 }
@@ -625,6 +718,25 @@ h2 {
   .project:nth-child(2),
   .project:nth-child(3) {
     grid-column: auto;
+    grid-template-columns: 1fr;
+  }
+
+  .project-visual,
+  .project-aside,
+  .project-info,
+  .project:nth-child(2) .project-visual,
+  .project:nth-child(2) .project-aside,
+  .project:nth-child(2) .project-info,
+  .project:nth-child(3) .project-visual,
+  .project:nth-child(3) .project-aside,
+  .project:nth-child(3) .project-info {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .project-aside {
+    width: 100%;
+    justify-self: stretch;
   }
 
   .project-info {
@@ -764,7 +876,7 @@ h2 {
   font-weight: 700;
   background: #EBDFE1;
   border: 0.25rem solid #DFB8B6;
-  border-radius: 1rem;
+  border-radius: 30px;
   padding: 0.45rem 0.85rem;
   transition: transform 0.2s ease;
 }
