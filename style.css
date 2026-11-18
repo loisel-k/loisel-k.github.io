@@ -844,6 +844,11 @@ h2 {
 }
 
 /* CONTACT SECTION */
+.contact .email-text {
+  cursor: text;
+  user-select: text;
+}
+
 .contact {
   margin-bottom: 6vh;
 }
